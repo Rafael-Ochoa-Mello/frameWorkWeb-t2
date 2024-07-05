@@ -30,8 +30,9 @@ def newGameString():
     genre = input("Gênero:")
     console = input("Console:")
     finished = input("Finalizado ? <Sim> <Nao> :")
+    player = input("Digite seu nick:")
     
-    dataSend =f"1;Titulo:{title}|Genero:{genre}|Console:{console}|Finalizado:{finished}\n"
+    dataSend =f"1;Titulo:{title}|Genero:{genre}|Console:{console}|Finalizado:{finished}|Player:{player}\n"
 
     client.send(dataSend.encode())
     resp = client.recv(2048).decode()
@@ -40,6 +41,7 @@ def newGameString():
         print('Jogo cadastrado com sucesso')
     else:
         print('Erro no cadastro no servidor!')
+
 
 
 ###<< User Menu >>########################################################

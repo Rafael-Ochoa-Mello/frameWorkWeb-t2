@@ -1,11 +1,1 @@
-Titulo:Megaman|Genero:Plataform|Console:Nes|Finalizado:Nao
-Titulo:Dragon Quest|Genero:RPG|Console:Nes|Finalizado:Sim
-Titulo:The Legend of Zelda|Genero:RPG|Console:Nes|Finalizado:Sim
-Titulo:Maplestory|Genero:MMORPG|Console:PC|Finalizado:Nao
-Titulo:Ragnarok Online|Genero:MMORPG|Console:PC|Finalizado:Nao
-Titulo:World of Warcraft|Genero:MMORPG|Console:PC|Finalizado:Nao
-Titulo:DarkWing Duck|Genero:Plataforma|Console:NES|Finalizado:S
-Titulo:Teste|Genero:Esperanca|Console:PC|Finalizado:Sim
-Titulo:Crash Bandicoot|Genero:Plataforma|Console:PS1|Finalizado:Nao
-Titulo:Crash Bandicoot II|Genero:Plataforma|Console:PS1|Finalizado:Sim
-Titulo:Crash Bandicoot III|Genero:Plataforma|Console:PS1|Finalizado:Nao
+Titulo:Pokemon Yellow|Genero:RPG|Console:GBC|Finalizado:1|Player:Rafael
