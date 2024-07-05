@@ -50,8 +50,27 @@ def showAllGames():
     elif resp == '1':
         print('Lista vazia, registre novos jogos')
     else:
+        acc = 0
+        games = resp.strip().split('\n')
         print("\n<<<<<<<<<<<< Listagem de jogos >>>>>>>>>>>>\n")
-        print(resp)
+        for g in games:
+            acc = acc + 1
+            aux = handleSplitData(g)
+            handleShowData(aux, acc)
+        # print(resp)
+
+def handleSplitData(data):
+    data = data.strip()
+    return data.split("|")    
+
+def handleShowData(game, index):
+    print(f"\n|------< Jogo {index} > ------------------------------------")
+    print(f"|> {game[0]}\n|> {game[1]}\n|> {game[2]}\n|> {game[3]}\n|> {game[4]}")
+    print(f"|-----------------------------------------------------")
+
+
+def removeGame():
+    print('remove')
 
 ###<< User Menu >>########################################################
 while True:

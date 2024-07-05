@@ -123,6 +123,8 @@ def showAllGames(fileName):
             connection.send('1'.enconde())
         else:
             x = ''.join(sendData)
+            print(sendData)
+            print(x)
             connection.send(x.encode())
     except FileNotFoundError:
         print('Arquivo não encontrado!')
