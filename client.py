@@ -42,7 +42,17 @@ def newGameString():
     else:
         print('Erro no cadastro no servidor!')
 
+def showAllGames():
+    client.send('2'.encode())
+    resp = client.recv(1024).decode()
+    if resp == '0':
+        print('Não foi possível receber a lista de jogos')
+    elif resp == '1':
+        print('Lista vazia, registre novos jogos')
+    else:
+        print(resp)
 
+def format
 
 ###<< User Menu >>########################################################
 while True:
@@ -58,7 +68,7 @@ while True:
     if opcao == 1:
         newGameString()
     elif opcao == 2:
-        loadGames("games.txt")
+        showAllGames()
     elif opcao == 3:
         findGame("games.txt")
     elif opcao == 4:

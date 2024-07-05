@@ -1,1 +1,3 @@
 Titulo:Pokemon Yellow|Genero:RPG|Console:GBC|Finalizado:1|Player:Rafael
+Titulo:Super Mario Bros|Genero:Plataforma|Console:NES|Finalizado:Sim|Player:Rafael
+Titulo:Megaman|Genero:Plataforma|Console:NES|Finalizado:Sim|Player:Rafael

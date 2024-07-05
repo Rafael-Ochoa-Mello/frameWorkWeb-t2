@@ -55,7 +55,6 @@ def showNotFound(acc, dataSize):
     if acc >= dataSize:
         print(f"Nenhum jogo foi encontrado...")
 
-###### Game Removal methods #############################################
 def removeGame(fileName):
     loadGames(fileName)
     
@@ -80,9 +79,7 @@ def removeGame(fileName):
         rawData.close()
         print(f"Jogo de número {gameID} removido com sucesso!")
     return
-        
 
-###### Game Storing methods #############################################
 def writeNewGame(fileName, newGame):
     try:
         with open(f"{FILE_PATH}/{fileName}", 'a') as file:
@@ -93,13 +90,14 @@ def writeNewGame(fileName, newGame):
     except FileNotFoundError:
         conexao.send('0'.encode())
 
-###### loadGames  (display) ##################################
 def loadGames(fileName):
     acc = 0
     finished = 0
+    sendData = ''
     try:
         with open(f"{FILE_PATH}/{fileName}", 'r') as file:
             print("\n<<<<<<<<<<<< Listagem de jogos >>>>>>>>>>>>")
+           
             data = file.readlines()
             for d in data:
                 acc = acc+1
@@ -111,6 +109,21 @@ def loadGames(fileName):
             showFinishedPercentage(acc, finished)
             file.close()
         connection.send('1'.encode())
+    except FileNotFoundError:
+        print('Arquivo não encontrado!')
+        conexao.send('0'.encode())
+
+def showAllGames(fileName):
+    sendData = ''
+    try:
+        with open(f"{FILE_PATH}/{fileName}", 'r') as file:
+            sendData = file.readlines()
+            file.close()
+        if sendData == '':
+            connection.send('1'.enconde())
+        else:
+            x = ''.join(sendData)
+            connection.send(x.encode())
     except FileNotFoundError:
         print('Arquivo não encontrado!')
         conexao.send('0'.encode())
@@ -216,9 +229,8 @@ while True:
 
     if partes[0] == '1':
         writeNewGame("games.txt", partes[1])
-        #incluirLog(partes[1], partes[2])
     elif partes[0] == '2':
-        pesquisarIP(partes[1])
+        showAllGames("games.txt")
     elif partes[0] == '3':
         pesquisaAcessos(partes[1])
     elif partes[0] == '4':
