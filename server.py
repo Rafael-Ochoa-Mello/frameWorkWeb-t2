@@ -55,29 +55,26 @@ def showNotFound(acc, dataSize):
     if acc >= dataSize:
         print(f"Nenhum jogo foi encontrado...")
 
-def removeGame(fileName):
-    loadGames(fileName)
-    
-    gameID = int(input("Informe o número do jogo que desejas remover: "))
+def removeGame(fileName, gameID):
+    gameID = int(gameID)
 
     if gameID <= 0:
-        return
-
-    if checkFile(fileName):
+        connection.send('0'.encode())    
+    
+    else:
         rawData = open(f"{FILE_PATH}/{fileName}")
         data = rawData.readlines()
-        rawData.close()
-
+    
         if gameID > len(data):
-            print("Invalido, apresente um numero correspondente")
-            return 
-        
+            connection.send('0'.encode())
+
         data.pop(gameID-1)
         
         rawData = open(f"{FILE_PATH}/{fileName}", 'w')
         rawData.write(''.join(data))
         rawData.close()
-        print(f"Jogo de número {gameID} removido com sucesso!")
+        connection.send('1'.encode())
+        # print(f"Jogo de número {gameID} removido com sucesso!")
     return
 
 def writeNewGame(fileName, newGame):
@@ -236,6 +233,6 @@ while True:
     elif partes[0] == '3':
         pesquisaAcessos(partes[1])
     elif partes[0] == '4':
-        excluir(partes[1])
+        removeGame("games.txt", partes[1])
 
 connection.close()

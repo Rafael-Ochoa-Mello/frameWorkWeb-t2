@@ -70,7 +70,17 @@ def handleShowData(game, index):
 
 
 def removeGame():
-    print('remove')
+    showAllGames()
+    gameID = input('Indique o número do jogo que desejas remover: ')
+    dataSend = f'4;{gameID}'
+    client.send(dataSend.encode())
+
+    resp = client.recv(2048).decode()
+
+    if resp == '0':
+        print('Nenum jogo com este valor foi encontrado...')
+    else:
+        print('Jogo Removido com sucesso!')
 
 ###<< User Menu >>########################################################
 while True:
@@ -90,7 +100,7 @@ while True:
     elif opcao == 3:
         findGame("games.txt")
     elif opcao == 4:
-        removeGame("games.txt")
+        removeGame()
     elif opcao == 5:
         showFinished("games.txt")
     elif opcao == 6:
