@@ -1,0 +1,3 @@
+Titulo:Dragon Quest|Genero:RPG|Console:Nes|Finalizado:Sim
+Titulo:The Legend of Zelda|Genero:RPG|Console:Nes|Finalizado:Sim
+Titulo:Darkwing Duck|Genero:Plataform|Console:Nes|Finalizado:Sim

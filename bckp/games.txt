@@ -1,0 +1,4 @@
+Titulo:Super Mario Bros|Genero:Plataform|Console:Nes|Finalizado:Sim
+Titulo:Megaman|Genero:Plataform|Console:Nes|Finalizado:Nao
+Titulo:Dragon Quest|Genero:RPG|Console:Nes|Finalizado:Sim
+Titulo:Tetris|Genero:Puzzle|Console:Nes|Finalizado:Nao
