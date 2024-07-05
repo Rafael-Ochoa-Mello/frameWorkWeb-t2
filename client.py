@@ -68,7 +68,6 @@ def handleShowData(game, index):
     print(f"|> {game[0]}\n|> {game[1]}\n|> {game[2]}\n|> {game[3]}\n|> {game[4]}")
     print(f"|-----------------------------------------------------")
 
-
 def removeGame():
     showAllGames()
     gameID = input('Indique o número do jogo que desejas remover: ')
@@ -82,6 +81,18 @@ def removeGame():
     else:
         print('Jogo Removido com sucesso!')
 
+def findGame():
+    gameName = str(input("Digite o nome do jogo de deseja pesquisar:")).lower()
+    dataSend = f'3;{gameName}'
+    client.send(dataSend.encode())
+
+    resp = client.recv(2048).decode()
+
+    if resp == '0':
+        print('Nenum jogo com este valor foi encontrado...')
+    else:
+       print(resp)
+
 ###<< User Menu >>########################################################
 while True:
     print('\n\nGaming Data - Rafael Ochoa Mello')
@@ -89,21 +100,15 @@ while True:
     print('2. Listagem de jogos')
     print('3. Pesquisa por título')
     print('4. Exclusão de jogo')
-    print('5. Listar finalizados')
-    print('6. Gerar arquivo de finalizados')
-    print('7. Finalizar\n\n')
+    print('5. Finalizar\n\n')
     opcao = int(input('Opção: '))
     if opcao == 1:
         newGameString()
     elif opcao == 2:
         showAllGames()
     elif opcao == 3:
-        findGame("games.txt")
+        findGame()
     elif opcao == 4:
         removeGame()
-    elif opcao == 5:
-        showFinished("games.txt")
-    elif opcao == 6:
-        finishedCopy("games.txt")
     else:
         break

@@ -127,24 +127,20 @@ def showAllGames(fileName):
         print('Arquivo não encontrado!')
         conexao.send('0'.encode())
 
-
 def handleDataOnShow(data):
     data = data.strip()
     return data.split("|")    
-
 
 def showGame(game, index):
     print(f"\n|------< Jogo {index} > ------------------------------------")
     print(f"|> {game[0]}\n|> {game[1]}\n|> {game[2]}\n|> {game[3]}")
     print(f"|-----------------------------------------------------")
 
-
 def isFinished(data, acc):
     finished = data[3].split(":")
     if finished[1] == 'Sim':
         return acc+1
     return acc
-
 
 def showFinishedPercentage(games, finished):
     if(games > 0 and finished > 0):
@@ -155,8 +151,7 @@ def mainMenu():
     print("Bem vindo a biblioteca de jogos (!)")
     
 ###### FindByName ##################################
-def findGame(fileName):
-    gameName = str(input("Digite o nome do jogo de deseja pesquisar:")).lower()
+def findGame(fileName, gameName):
     acc = 0
     try:
         with open(f"{FILE_PATH}/{fileName}", 'r') as file:
@@ -167,12 +162,12 @@ def findGame(fileName):
                 titlePart = game[0].split(":")
                 title = titlePart[1].lower()
                 if gameName == title:
-                    showGame(game, acc)
-                    return
-            showNotFound(acc, len(data))
+                    x = ''.join(d)
+                    connection.send(x.encode())  
+            connection.send('0'.encode())    
             file.close()
     except FileNotFoundError:
-        print('Arquivo não encontrado!')
+        connection.send('0'.encode())    
 
 ###### ShowOnlyFinished ##################################
 def showFinished(fileName):
@@ -231,7 +226,7 @@ while True:
     elif partes[0] == '2':
         showAllGames("games.txt")
     elif partes[0] == '3':
-        pesquisaAcessos(partes[1])
+        findGame("games.txt", partes[1])
     elif partes[0] == '4':
         removeGame("games.txt", partes[1])
 
