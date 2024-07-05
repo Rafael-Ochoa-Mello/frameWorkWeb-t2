@@ -50,9 +50,8 @@ def showAllGames():
     elif resp == '1':
         print('Lista vazia, registre novos jogos')
     else:
+        print("\n<<<<<<<<<<<< Listagem de jogos >>>>>>>>>>>>\n")
         print(resp)
-
-def format
 
 ###<< User Menu >>########################################################
 while True:
